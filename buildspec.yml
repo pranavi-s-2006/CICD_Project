@@ -1,0 +1,36 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18
+    commands:
+      - echo Installing dependencies...
+      - npm install
+
+  pre_build:
+    commands:
+      - echo Pre-build phase started
+      - echo Node version $(node -v)
+      - echo NPM version $(npm -v)
+
+  build:
+    commands:
+      - echo Build phase started on `date`
+      - echo Running application...
+      - node server.js &
+
+  post_build:
+    commands:
+      - echo Build completed on `date`
+
+artifacts:
+  files:
+    - server.js
+    - package.json
+    - package-lock.json
+    - routes/**/*
+    - models/**/*
+    - middleware/**/*
+    - utils/**/*
+  discard-paths: no
