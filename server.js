@@ -7,26 +7,18 @@ require('dotenv').config();
 const app = express();
 
 // Middleware
-const allowedOrigins = [
-  'http://localhost:3000',
-  'https://focusloom-frontend.onrender.com',
-  'https://cicd-frontend-omega.vercel.app',
-  process.env.FRONTEND_URL
-].filter(Boolean);
-
 app.use(cors({
-  origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) {
-      return callback(null, true);
-    }
-    callback(new Error('Not allowed by CORS'));
-  },
+  origin: true,
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
-app.options('*', cors());
+app.options('*', cors({
+  origin: true,
+  credentials: true
+}));
+
 app.use(express.json());
 
 // Database connection with retry logic
