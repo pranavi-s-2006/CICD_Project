@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const path = require('path');
 require('dotenv').config();
 
 const app = express();
@@ -9,12 +10,15 @@ const app = express();
 const allowedOrigins = [
   'http://localhost:3000',
   'https://focusloom-frontend.onrender.com',
+  'https://cicd-frontend-omega.vercel.app',
   process.env.FRONTEND_URL
 ].filter(Boolean);
 
 app.use(cors({
   origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) return callback(null, true);
+    if (!origin || allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
     callback(new Error('Not allowed by CORS'));
   },
   credentials: true,
@@ -61,10 +65,11 @@ app.use('/api/streak', require('./routes/streak'));
 app.use('/api/chat', require('./routes/chat'));
 
 // Serve React frontend build
-const path = require('path');
-app.use(express.static(path.join(__dirname, 'frontend/build')));
+app.use(express.static(path.join(__dirname, 'frontend', 'build')));
+
+// React route fallback
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'frontend/build', 'index.html'));
+  res.sendFile(path.join(__dirname, 'frontend', 'build', 'index.html'));
 });
 
 // Error handling middleware
