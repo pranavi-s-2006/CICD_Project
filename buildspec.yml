@@ -1,48 +1,18 @@
 version: 0.2
 
-env:
-  variables:
-    PORT: "5000"
-    NODE_ENV: "production"
-    MONGODB_URI: "mongodb+srv://pranaviprans976_db_user:pyqSJlELB2PgvxcK@cluster0.d1bvei1.mongodb.net/focusloom?retryWrites=true&w=majority"
-    JWT_SECRET: "focusloom-jwt-secret-2024-production"
-
 phases:
   install:
     runtime-versions:
-      nodejs: 18
+      nodejs: 22
     commands:
       - echo Installing dependencies...
       - npm install
 
-  pre_build:
-    commands:
-      - echo Writing .env file...
-      - echo PORT=5000 > .env
-      - echo NODE_ENV=production >> .env
-      - echo MONGODB_URI=mongodb+srv://pranaviprans976_db_user:pyqSJlELB2PgvxcK@cluster0.d1bvei1.mongodb.net/focusloom?retryWrites=true&w=majority >> .env
-      - echo JWT_SECRET=focusloom-jwt-secret-2024-production >> .env
-      - echo Testing MongoDB connection...
-      - node -e "const mongoose=require('mongoose');mongoose.connect(process.env.MONGODB_URI).then(()=>{console.log('MongoDB Connected');process.exit(0)}).catch(e=>{console.error(e);process.exit(1)})"
-
   build:
     commands:
-      - echo Build started on `date`
-      - node server.js &
-      - echo Server started
-
-  post_build:
-    commands:
-      - echo Build completed on `date`
+      - echo Build completed successfully
 
 artifacts:
   files:
-    - server.js
-    - package.json
-    - package-lock.json
-    - .env
-    - routes/**/*
-    - models/**/*
-    - middleware/**/*
-    - utils/**/*
+    - '**/*'
   discard-paths: no
