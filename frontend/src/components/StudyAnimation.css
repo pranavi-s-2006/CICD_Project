@@ -1,0 +1,376 @@
+.study-animation-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  background: #b0d4e3;
+  min-height: 100vh;
+}
+
+.study-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Head bobbing animation */
+.head {
+  animation: bob 3s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Blinking eyes */
+.eye {
+  animation: blink 4s infinite;
+}
+
+@keyframes blink {
+  0%, 48%, 52%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Smiling */
+.smile {
+  animation: smile 5s ease-in-out infinite;
+}
+
+@keyframes smile {
+  0%, 100% { d: path("M 390 330 Q 400 335 410 330"); }
+  50% { d: path("M 390 332 Q 400 337 410 332"); }
+}
+
+/* Typing arms */
+.arm-left {
+  animation: type-left 1s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+.arm-right {
+  animation: type-right 1s ease-in-out infinite 0.5s;
+  transform-origin: top center;
+}
+
+@keyframes type-left {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-3deg); }
+}
+
+@keyframes type-right {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(3deg); }
+}
+
+/* Laptop screen glow */
+.laptop-display {
+  animation: screen-glow 2s ease-in-out infinite;
+}
+
+@keyframes screen-glow {
+  0%, 100% { fill: #3498db; }
+  50% { fill: #5dade2; }
+}
+
+/* Code lines typing effect */
+.code-line {
+  animation: code-appear 3s ease-in-out infinite;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+}
+
+.code-line:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.code-line:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.code-line:nth-child(3) {
+  animation-delay: 1s;
+}
+
+.code-line:nth-child(4) {
+  animation-delay: 1.5s;
+}
+
+@keyframes code-appear {
+  0% { stroke-dashoffset: 100; }
+  50%, 100% { stroke-dashoffset: 0; }
+}
+
+/* Steam animation */
+.steam {
+  animation: steam-rise 3s ease-in-out infinite;
+  opacity: 0;
+}
+
+.steam-1 {
+  animation-delay: 0s;
+}
+
+.steam-2 {
+  animation-delay: 1s;
+}
+
+.steam-3 {
+  animation-delay: 2s;
+}
+
+@keyframes steam-rise {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+/* Clouds moving */
+.cloud {
+  animation: cloud-float 20s ease-in-out infinite;
+}
+
+.cloud-1 {
+  animation-delay: 0s;
+}
+
+.cloud-2 {
+  animation-delay: 10s;
+}
+
+@keyframes cloud-float {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(30px); }
+}
+
+/* Leaves swaying */
+.leaf {
+  animation: leaf-sway 3s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes leaf-sway {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-5deg); }
+  75% { transform: rotate(5deg); }
+}
+
+/* Floating particles */
+.particle {
+  animation: particle-float 4s ease-in-out infinite;
+  opacity: 0;
+}
+
+.particle-1 {
+  animation-delay: 0s;
+}
+
+.particle-2 {
+  animation-delay: 1s;
+}
+
+.particle-3 {
+  animation-delay: 2s;
+}
+
+.particle-4 {
+  animation-delay: 3s;
+}
+
+@keyframes particle-float {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-50px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100px) scale(0);
+  }
+}
+
+/* Laptop base subtle movement */
+.laptop-base {
+  animation: laptop-vibrate 0.5s ease-in-out infinite;
+}
+
+@keyframes laptop-vibrate {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-0.5px); }
+  75% { transform: translateX(0.5px); }
+}
+
+/* Dark mode support */
+[data-theme="dark"] .study-svg {
+  filter: drop-shadow(0 10px 30px rgba(255,255,255,0.1));
+}
+
+/* Headphones pulsing */
+.headphone-left, .headphone-right {
+  animation: headphone-pulse 2s ease-in-out infinite;
+}
+
+@keyframes headphone-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+/* Speaker detail animation */
+.speaker-detail {
+  animation: speaker-beat 1.5s ease-in-out infinite;
+}
+
+@keyframes speaker-beat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+/* Body breathing */
+.body {
+  animation: breathe 4s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
+/* Hair strand movement */
+.hair-strand {
+  animation: hair-sway 3s ease-in-out infinite;
+  transform-origin: top;
+}
+
+@keyframes hair-sway {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(2deg); }
+}
+
+/* Eyebrow movement */
+.eyebrow {
+  animation: eyebrow-raise 5s ease-in-out infinite;
+}
+
+@keyframes eyebrow-raise {
+  0%, 90%, 100% { transform: translateY(0); }
+  95% { transform: translateY(-2px); }
+}
+
+/* Keyboard keys */
+.key {
+  animation: key-press 0.3s ease-in-out infinite;
+}
+
+.key:nth-child(odd) {
+  animation-delay: 0s;
+}
+
+.key:nth-child(even) {
+  animation-delay: 0.15s;
+}
+
+@keyframes key-press {
+  0%, 100% { transform: translateY(0); fill: #2c3e50; }
+  50% { transform: translateY(2px); fill: #1a252f; }
+}
+
+/* Code lines enhanced */
+.code-1 { animation: code-type 4s ease-in-out infinite; animation-delay: 0s; }
+.code-2 { animation: code-type 4s ease-in-out infinite; animation-delay: 0.5s; }
+.code-3 { animation: code-type 4s ease-in-out infinite; animation-delay: 1s; }
+.code-4 { animation: code-type 4s ease-in-out infinite; animation-delay: 1.5s; }
+.code-5 { animation: code-type 4s ease-in-out infinite; animation-delay: 2s; }
+.code-6 { animation: code-type 4s ease-in-out infinite; animation-delay: 2.5s; }
+.code-7 { animation: code-type 4s ease-in-out infinite; animation-delay: 3s; }
+
+@keyframes code-type {
+  0% { stroke-dasharray: 100; stroke-dashoffset: 100; opacity: 0; }
+  50% { stroke-dashoffset: 0; opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 1; }
+}
+
+/* Leaves enhanced */
+.leaf-1 { animation: leaf-sway 2.5s ease-in-out infinite; animation-delay: 0s; }
+.leaf-2 { animation: leaf-sway 2.5s ease-in-out infinite; animation-delay: 0.8s; }
+.leaf-3 { animation: leaf-sway 2.5s ease-in-out infinite; animation-delay: 1.6s; }
+
+/* Particles enhanced */
+.particle-5, .particle-6 {
+  animation: particle-float 5s ease-in-out infinite;
+}
+
+.particle-5 { animation-delay: 0.5s; }
+.particle-6 { animation-delay: 2.5s; }
+
+/* Tree crown swaying */
+.tree-crown {
+  animation: tree-sway 4s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+@keyframes tree-sway {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-2deg); }
+  75% { transform: rotate(2deg); }
+}
+
+/* Sun glowing */
+.sun {
+  animation: sun-glow 3s ease-in-out infinite;
+}
+
+@keyframes sun-glow {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.1); }
+}
+
+/* Clouds in window */
+.cloud-1 {
+  animation: cloud-drift 25s ease-in-out infinite;
+}
+
+.cloud-2 {
+  animation: cloud-drift 30s ease-in-out infinite;
+  animation-delay: 5s;
+}
+
+@keyframes cloud-drift {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(20px); }
+}
+
+/* Tree crown swaying */
+.tree-crown {
+  animation: tree-sway 4s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+@keyframes tree-sway {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-2deg); }
+  75% { transform: rotate(2deg); }
+}
+
+/* Sun glowing */
+.sun {
+  animation: sun-glow 3s ease-in-out infinite;
+}
+
+@keyframes sun-glow {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.1); }
+}

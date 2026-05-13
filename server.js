@@ -44,11 +44,6 @@ const connectDB = async () => {
 
 connectDB();
 
-// Home route for Elastic Beanstalk testing
-app.get('/', (req, res) => {
-  res.send('FOCUSLOOM Node.js app deployed successfully using AWS CI/CD');
-});
-
 // Health check route
 app.get('/health', (req, res) => {
   res.json({
@@ -57,13 +52,20 @@ app.get('/health', (req, res) => {
   });
 });
 
-// Routes
+// API Routes
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/sessions', require('./routes/sessions'));
 app.use('/api/analytics', require('./routes/analytics'));
 app.use('/api/biometric', require('./routes/biometric'));
 app.use('/api/streak', require('./routes/streak'));
 app.use('/api/chat', require('./routes/chat'));
+
+// Serve React frontend build
+const path = require('path');
+app.use(express.static(path.join(__dirname, 'frontend/build')));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'frontend/build', 'index.html'));
+});
 
 // Error handling middleware
 app.use((err, req, res, next) => {

@@ -1,0 +1,472 @@
+.analytics {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #f7fafc, #ffffff, #ebf8ff);
+}
+
+[data-theme="dark"] .analytics,
+.dark .analytics {
+  background: linear-gradient(to bottom right, #1a202c, #2d3748, #2c5282);
+}
+
+.analytics-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  color: #2d3748;
+}
+
+[data-theme="dark"] .analytics-loading,
+.dark .analytics-loading {
+  color: #e2e8f0;
+}
+
+.analytics-loading .spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #e2e8f0;
+  border-top: 6px solid #4299e1;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+.analytics-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.analytics-header h1 {
+  font-size: 2.5rem;
+  color: #2d3748;
+  margin: 0;
+}
+
+.time-range-selector {
+  display: flex;
+  gap: 0.5rem;
+  background: #f7fafc;
+  padding: 0.25rem;
+  border-radius: 8px;
+}
+
+.time-range-selector button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #4a5568;
+  transition: all 0.2s ease;
+}
+
+.time-range-selector button:hover {
+  background: #edf2f7;
+}
+
+[data-theme="dark"] .time-range-selector button:hover,
+.dark .time-range-selector button:hover {
+  background: #4a5568;
+}
+
+.time-range-selector button.active {
+  background: white;
+  color: #4299e1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Insights Section */
+.insights-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  color: white;
+}
+
+.insights-section h2 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: white;
+}
+
+.insights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.insight-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  padding: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  transition: transform 0.3s ease;
+}
+
+.insight-card:hover {
+  transform: translateY(-4px);
+}
+
+.insight-card.high {
+  border-left: 4px solid #fc8181;
+}
+
+.insight-card.medium {
+  border-left: 4px solid #f6e05e;
+}
+
+.insight-card.low {
+  border-left: 4px solid #68d391;
+}
+
+.insight-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.insight-content {
+  flex: 1;
+}
+
+.insight-content p {
+  margin: 0 0 1rem 0;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+.insight-action {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.insight-action:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Charts Grid */
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 1024px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.chart-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.chart-card h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #2d3748;
+}
+
+.chart-container {
+  height: 250px;
+}
+
+/* Patterns Section */
+.patterns-section {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.patterns-section h2 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: #2d3748;
+}
+
+.patterns-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.pattern-card {
+  background: #f7fafc;
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.pattern-card:hover {
+  transform: translateY(-4px);
+}
+
+.pattern-card h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #4a5568;
+  font-size: 1.1rem;
+}
+
+.pattern-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+}
+
+.pattern-card p {
+  color: #718096;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* Recommendations Section */
+.recommendations-section {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.recommendations-section h2 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: #2d3748;
+}
+
+.recommendations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.recommendation-card {
+  background: #f7fafc;
+  padding: 1.5rem;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.recommendation-card:hover {
+  border-color: #4299e1;
+  transform: translateY(-4px);
+}
+
+.recommendation-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.recommendation-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: #2d3748;
+}
+
+.recommendation-card p {
+  color: #4a5568;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.recommendation-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background: #4299e1;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.recommendation-btn:hover {
+  background: #3182ce;
+}
+
+/* Export Section */
+.export-section {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.export-section h2 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: #2d3748;
+}
+
+.export-options {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.export-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #4a5568;
+  transition: all 0.2s ease;
+}
+
+.export-btn:hover {
+  background: #f7fafc;
+  border-color: #4299e1;
+  color: #4299e1;
+}
+
+/* Dark Mode Support */
+[data-theme="dark"] .analytics,
+.dark .analytics {
+  color: #e2e8f0;
+}
+
+[data-theme="dark"] .analytics-loading .spinner,
+.dark .analytics-loading .spinner {
+  border-color: #4a5568;
+  border-top-color: #4299e1;
+}
+
+[data-theme="dark"] .analytics-header h1,
+.dark .analytics-header h1 {
+  color: #e2e8f0;
+}
+
+[data-theme="dark"] .time-range-selector,
+.dark .time-range-selector {
+  background: #1a202c;
+}
+
+[data-theme="dark"] .time-range-selector button,
+.dark .time-range-selector button {
+  color: #a0aec0;
+}
+
+[data-theme="dark"] .time-range-selector button.active,
+.dark .time-range-selector button.active {
+  background: #2d3748;
+  color: #4299e1;
+}
+
+[data-theme="dark"] .chart-card,
+.dark .chart-card {
+  background: #2d3748;
+}
+
+[data-theme="dark"] .chart-card h3,
+.dark .chart-card h3 {
+  color: #e2e8f0;
+}
+
+[data-theme="dark"] .patterns-section,
+.dark .patterns-section {
+  background: #2d3748;
+}
+
+[data-theme="dark"] .patterns-section h2,
+.dark .patterns-section h2 {
+  color: #e2e8f0;
+}
+
+[data-theme="dark"] .pattern-card,
+.dark .pattern-card {
+  background: #1a202c;
+}
+
+[data-theme="dark"] .pattern-card h3,
+.dark .pattern-card h3 {
+  color: #e2e8f0;
+}
+
+[data-theme="dark"] .pattern-value,
+.dark .pattern-value {
+  color: #e2e8f0;
+}
+
+[data-theme="dark"] .pattern-card p,
+.dark .pattern-card p {
+  color: #a0aec0;
+}
+
+[data-theme="dark"] .recommendations-section,
+.dark .recommendations-section {
+  background: #2d3748;
+}
+
+[data-theme="dark"] .recommendations-section h2,
+.dark .recommendations-section h2 {
+  color: #e2e8f0;
+}
+
+[data-theme="dark"] .recommendation-card,
+.dark .recommendation-card {
+  background: #1a202c;
+}
+
+[data-theme="dark"] .recommendation-card h3,
+.dark .recommendation-card h3 {
+  color: #e2e8f0;
+}
+
+[data-theme="dark"] .recommendation-card p,
+.dark .recommendation-card p {
+  color: #a0aec0;
+}
+
+[data-theme="dark"] .export-section,
+.dark .export-section {
+  background: #2d3748;
+}
+
+[data-theme="dark"] .export-section h2,
+.dark .export-section h2 {
+  color: #e2e8f0;
+}
+
+[data-theme="dark"] .export-btn,
+.dark .export-btn {
+  background: #1a202c;
+  border-color: #4a5568;
+  color: #e2e8f0;
+}
+
+[data-theme="dark"] .export-btn:hover,
+.dark .export-btn:hover {
+  background: #2d3748;
+}

@@ -1,0 +1,320 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #f7fafc;
+  color: #2d3748;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark Mode */
+[data-theme="dark"] body {
+  background: #1a202c;
+  color: #e2e8f0;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+[data-theme="dark"] .main-content {
+  background: #1a202c;
+}
+
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select {
+  background: #2d3748;
+  color: #e2e8f0;
+  border-color: #4a5568;
+}
+
+[data-theme="dark"] button {
+  color: inherit;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-track {
+  background: #2d3748;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: #4a5568;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+  background: #718096;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  padding-top: 1rem;
+}
+
+/* Utility Classes */
+.loading-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a1;
+}
+
+/* Global Focus States */
+:focus {
+  outline: 2px solid #4299e1;
+  outline-offset: 2px;
+}
+
+/* Global Button Styles */
+button {
+  font-family: inherit;
+}
+
+/* Global Link Styles */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Responsive Images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Print Styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+  
+
+/* Dark Mode Support - Additional Classes */
+.dark body {
+  background: #1a202c;
+  color: #e2e8f0;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+.dark .main-content {
+  background: #1a202c;
+}
+
+.dark input,
+.dark textarea,
+.dark select {
+  background: #2d3748;
+  color: #e2e8f0;
+  border-color: #4a5568;
+}
+
+.dark button {
+  color: inherit;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #2d3748;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #4a5568;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #718096;
+}
+
+/* AI Insights Dark Mode Specific */
+.dark .glass-card {
+  background: rgba(45, 55, 72, 0.7);
+  border-color: rgba(74, 85, 104, 0.3);
+}
+
+.dark .text-calm-900 {
+  color: #e2e8f0 !important;
+}
+
+.dark .text-calm-600 {
+  color: #a0aec0 !important;
+}
+
+.dark .text-calm-500 {
+  color: #cbd5e0 !important;
+}
+
+.dark .text-focus-900 {
+  color: #e2e8f0 !important;
+}
+
+.dark .text-focus-700 {
+  color: #90cdf4 !important;
+}
+
+.dark .text-focus-600 {
+  color: #63b3ed !important;
+}
+
+.dark .bg-green-50 {
+  background-color: rgba(16, 185, 129, 0.1) !important;
+}
+
+.dark .border-green-200 {
+  border-color: rgba(16, 185, 129, 0.3) !important;
+}
+
+.dark .bg-yellow-50 {
+  background-color: rgba(251, 191, 36, 0.1) !important;
+}
+
+.dark .border-yellow-200 {
+  border-color: rgba(251, 191, 36, 0.3) !important;
+}
+
+.dark .bg-focus-50 {
+  background-color: rgba(14, 165, 233, 0.1) !important;
+}
+
+.dark .border-focus-200 {
+  border-color: rgba(14, 165, 233, 0.3) !important;
+}
+
+.dark .bg-white {
+  background-color: #2d3748 !important;
+}
+
+.dark .text-green-700 {
+  color: #6ee7b7 !important;
+}
+
+.dark .text-yellow-700 {
+  color: #fcd34d !important;
+}
+
+.dark .bg-gradient-to-br.from-focus-50 {
+  background-image: linear-gradient(to bottom right, rgba(14, 165, 233, 0.1), rgba(14, 165, 233, 0.2)) !important;
+}
+
+.dark .border-focus-800 {
+  border-color: rgba(14, 165, 233, 0.4) !important;
+}
+
+/* AI Insights Page - Force Dark Background */
+.dark .bg-gradient-to-br.from-calm-50 {
+  background: linear-gradient(to bottom right, #1a202c, #2d3748) !important;
+}
+
+.dark .from-calm-50 {
+  --tw-gradient-from: #1a202c !important;
+}
+
+.dark .via-white {
+  --tw-gradient-via: #2d3748 !important;
+}
+
+.dark .to-focus-50 {
+  --tw-gradient-to: #374151 !important;
+}
+
+.dark .from-calm-900 {
+  --tw-gradient-from: #1a202c !important;
+}
+
+.dark .via-calm-800 {
+  --tw-gradient-via: #2d3748 !important;
+}
+
+.dark .to-focus-900 {
+  --tw-gradient-to: #374151 !important;
+}
+
+.dark .min-h-screen {
+  background: #1a202c !important;
+}
+
+/* Override Tailwind gradient backgrounds in dark mode */
+.dark [class*="bg-gradient"] {
+  background: linear-gradient(to bottom right, #1a202c, #2d3748) !important;
+}
+
+.dark .from-focus-50.to-focus-100 {
+  background: linear-gradient(to bottom right, rgba(14, 165, 233, 0.1), rgba(14, 165, 233, 0.15)) !important;
+}
